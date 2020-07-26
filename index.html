@@ -1,86 +1,116 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <title>Welcome To My Resume!</title>
+
+    </head>
+
+    
+
 
     <body>
+       
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="work.html"><i class="fas fa-briefcase"></i>Work</a></li>
+                    <li><a href="#"><i class="fas fa-sitemap"></i>Organizations</a></li>
+
+                </ul> 
+                
+            </div>
+            <div class="main_content">
+                <div class="header" id="header"></div>  
+                <img id = "dp" src="me.jpg" alt="Avatar"> 
+                <div id="abtme">About Me</div>
+                <br>
+
+                <div id="intro"></div>
+         
+            </div>
+            </div>
+        </div>
+
+
+      
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+
+                <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+            <script>
 
 
 
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDPksMApTycQBOCITMf9ewewKDtu99oXW8",
+                authDomain: "ccappdev-resume.firebaseapp.com",
+                databaseURL: "https://ccappdev-resume.firebaseio.com",
+                projectId: "ccappdev-resume",
+                storageBucket: "ccappdev-resume.appspot.com",
+                messagingSenderId: "81143200495",
+                appId: "1:81143200495:web:f95c0ebf26526ce089b91a"
+            };
+            // Initialize Firebase
+            var defaultProject = firebase.initializeApp(firebaseConfig);
 
+            var db = firebase.firestore();
 
+            const intro = document.querySelector('#intro');
 
+            function render(doc){
 
+                intro.setAttribute('data-id', doc.id);
+                intro.textContent = doc.data().intro;
 
-
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-
-            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-
-        <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDPksMApTycQBOCITMf9ewewKDtu99oXW8",
-            authDomain: "ccappdev-resume.firebaseapp.com",
-            databaseURL: "https://ccappdev-resume.firebaseio.com",
-            projectId: "ccappdev-resume",
-            storageBucket: "ccappdev-resume.appspot.com",
-            messagingSenderId: "81143200495",
-            appId: "1:81143200495:web:f95c0ebf26526ce089b91a"
-        };
-        // Initialize Firebase
-        var defaultProject = firebase.initializeApp(firebaseConfig);
-
-        var db = firebase.firestore();
-
-        db.collection("educations").get().then(function(snapshot){
-            snapshot.forEach(function(doc){
-                console.log(doc.data());
-            })
-        });
-
-        var newObject = {
-            name: "IEE",
-            position: "Member",
-            year_start: "2014",
-            year_end: "2020"
-        }
-
- //       db.collection("organizations").add(newObject).then(function(doc){
- //           console.log("Item added with the uid " + doc.id);
- //       })
-
-        // db.collection("organizations").doc("cqzYCd5yF5JGS74kaiV2").delete().then(function(){
-        //     console.log("Item deleted");
-
-        // }).catch(function(err){
-        //     console.log("error in deleting item" + err);
-        // });
-
-
-        var email = "courtney.ngo@dlsu.edu.ph";
-        var password = "abcd1234";
-
-        firebase.auth().signInWithEmailAndPassword(email,password).then(function(user){
-            console.log("user signed in");
-
-            var user = firebase.auth().currentUser;
-            if (user!=null){
-                console.log(user.email);
+                
             }
 
-        }).catch(function(err){
-            if(err.code == "auth/wrong-passsword"){
-                alert("wrong password")
-            }else{
-                alert(err.message);
-            }
-        });
+            db.collection("intro").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        render(doc);
+                        
+                    })
+                })
+            
+            var x = 0;
+            var homeHeader = "Hi! I am Simon Kim and Welcome to my Resume!";
+            var container = document.getElementById('header');
 
-</script>
+            function homeType(){
+                if (x < homeHeader.length){
+                    container.innerHTML += homeHeader.charAt(x);
+                    x++;
+                    setTimeout(homeType, 80);
+                    
+                }
+                
+            }
+            homeType();
+
+           
+
+            </script>
+                
+
     </body>
 
-
+    
 </html>
