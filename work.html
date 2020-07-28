@@ -25,11 +25,14 @@
                 <h2>Menu</h2>
                 <ul>
                     <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="education.html"><i class="fas fa-graduation-cap"></i></i>Education</a></li>
                     <li><a href="work.html"><i class="fas fa-briefcase"></i>Work</a></li>
-                    <li><a href="#"><i class="fas fa-sitemap"></i>Organizations</a></li>
+                    <li><a href="organizations.html"><i class="fas fa-sitemap"></i>Organizations</a></li>
 
                 </ul> 
-                
+                <i class="fab fa-linkedin" id="linkedin"></i>
+                <i class="fab fa-twitter-square" id= "twitter"></i>
+                <i class="fab fa-github-square" id="github"></i>
             </div>
             <div class="main_content">
                 <div class="header" id="header"></div>  
@@ -101,18 +104,18 @@
 
 
             var x = 0;
-            var workHeader = "Past Works";
+            var typeHeader = "Past Works";
             var container = document.getElementById('header');
-            function workType(){
-                if (x < workHeader.length){
-                    container.innerHTML += workHeader.charAt(x);
+            function type(){
+                if (x < typeHeader.length){
+                    container.innerHTML += typeHeader.charAt(x);
                     x++;
-                    setTimeout(workType, 80);
+                    setTimeout(type, 80);
                     
                 }
                 
             }
-            workType();
+            type();
 
             </script>
                 
