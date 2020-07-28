@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <title>Welcome To My Resume!</title>
+
+    </head>
+
+    
+
+
+    <body>
+       
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="education.html"><i class="fas fa-graduation-cap"></i></i>Education</a></li>
+                    <li><a href="work.html"><i class="fas fa-briefcase"></i>Work</a></li>
+                    <li><a href="organizations.html"><i class="fas fa-sitemap"></i>Organizations</a></li>
+
+                </ul> 
+                <i class="fab fa-linkedin" id="linkedin"></i>
+                <i class="fab fa-twitter-square" id= "twitter"></i>
+                <i class="fab fa-github-square" id="github"></i>
+            </div>
+            <div class="main_content">
+                <div class="header" id="header"></div>  
+                <div id="educationContainer">
+                    
+
+
+                </div>
+                
+         
+            </div>
+            </div>
+        </div>
+
+
+      
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+
+                <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+            <script>
+
+
+
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDPksMApTycQBOCITMf9ewewKDtu99oXW8",
+                authDomain: "ccappdev-resume.firebaseapp.com",
+                databaseURL: "https://ccappdev-resume.firebaseio.com",
+                projectId: "ccappdev-resume",
+                storageBucket: "ccappdev-resume.appspot.com",
+                messagingSenderId: "81143200495",
+                appId: "1:81143200495:web:f95c0ebf26526ce089b91a"
+            };
+            // Initialize Firebase
+            var defaultProject = firebase.initializeApp(firebaseConfig);
+
+            var db = firebase.firestore();
+
+            const educations = document.querySelector('#educationContainer');
+
+
+            function renderEducation(doc){
+                let record= document.createElement('div');
+                let school = document.createElement('div');
+                let degree = document.createElement('div');
+                let year_start = document.createElement('div');
+                let year_end = document.createElement('div');
+                let space = document.createElement('br');
+
+                record.setAttribute('id', 'record');
+                school.setAttribute('id', 'school');
+                degree.setAttribute('id', 'degree');
+                year_start.setAttribute('id', 'year-start');
+                year_end.setAttribute('id', 'year-end');
+
+                school.textContent = doc.data().school;
+                degree.textContent = doc.data().degree;
+                year_start.textContent = "Year start: " +doc.data().year_start;
+                year_end.textContent = "Year end: " + doc.data().year_end;
+
+
+
+                record.appendChild(school);
+                record.appendChild(degree);
+                record.appendChild(year_start);
+                record.appendChild(year_end);
+
+                educations.appendChild(record);
+                
+            }
+
+
+             db.collection("educations").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderEducation(doc);
+                    })
+                })
+
+
+            var x = 0;
+            var typeHeader = "Education";
+            var container = document.getElementById('header');
+            function type(){
+                if (x < typeHeader.length){
+                    container.innerHTML += typeHeader.charAt(x);
+                    x++;
+                    setTimeout(type, 80);
+                    
+                }
+                
+            }
+            type();
+
+            </script>
+                
+
+
+    </body>
+
+</html>
