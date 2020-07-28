@@ -90,9 +90,6 @@ body{
   margin-bottom: 20px;
 }
 
-
-
-
 #dp{
   position:relative;
   overflow:hidden;
@@ -139,12 +136,101 @@ body{
   font-size: 80px;
   font-weight: 1000%;
   color: black;
-  background-color: #c7b198;
+  background-color: #f69e7b;
   border-radius:10px;
   margin-top: 80px;
   max-width: auto;
 }
 
-#proj{
+#proj{                /*EDIT LATER WHEN DONE*/
   font-size: 45px;
+}
+
+
+#educationContainer{
+  background-color: #f69e7b;
+  border-radius: 10px;
+  display:flex;
+  margin: 200px;
+  margin-top: 30px;
+  flex-direction:column;
+  justify-content: center;
+}
+
+
+#record{
+  flex-grow:1;
+  height:auto;
+  width:auto;
+}
+
+#school, #orgname{
+  font-size: 65px;
+  padding-top:20px;
+  padding-left:30px;
+  font-weight: 900;
+  /* background-color: #d4b5b0;  */
+  border-radius: 5%;
+  
+}
+
+
+#degree, #position{
+  padding-left:60px;
+  font-size:35px;
+
+}
+
+
+#year-start{
+  padding-top:10px;
+  padding-left:60px;
+  font-size:20px;
+
+}
+
+
+#year-end{
+  padding-top:10px;
+  padding-left:60px;
+  font-size:20px;
+  border-bottom: 5px dashed;
+}
+
+#linkedin{
+  position:fixed;
+  bottom:0%;
+  left:20px;
+  font-size: 40px;
+  padding-right: 10px;
+  border-right: 5px solid;
+  cursor: pointer;
+}
+
+#twitter{
+  position:fixed;
+  bottom:0%;
+  left: 80px;
+  font-size: 40px;
+  padding-right: 10px;
+  border-right: 5px solid;
+  cursor: pointer;
+}
+
+#github{
+  position:fixed;
+  bottom:0%;
+  left: 140px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+#organizationsContainer{
+  background-color: #f69e7b;
+  border-radius: 10px;
+  display:flex;
+  margin: 200px;
+  margin-top: 30px;
+  flex-direction:column;
+  justify-content: center;
 }
