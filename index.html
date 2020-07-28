@@ -25,11 +25,16 @@
                 <h2>Menu</h2>
                 <ul>
                     <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="education.html"><i class="fas fa-graduation-cap"></i></i>Education</a></li>
                     <li><a href="work.html"><i class="fas fa-briefcase"></i>Work</a></li>
-                    <li><a href="#"><i class="fas fa-sitemap"></i>Organizations</a></li>
+                    <li><a href="organizations.html"><i class="fas fa-sitemap"></i>Organizations</a></li>
+                    
+                    
 
                 </ul> 
-                
+                <i class="fab fa-linkedin" id="linkedin"></i>
+                <i class="fab fa-twitter-square" id= "twitter"></i>
+                <i class="fab fa-github-square" id="github"></i>
             </div>
             <div class="main_content">
                 <div class="header" id="header"></div>  
@@ -38,10 +43,18 @@
                 <br>
 
                 <div id="intro"></div>
-         
+                
             </div>
+            
             </div>
         </div>
+
+            
+            
+                    
+               
+            
+        
 
 
       
@@ -91,19 +104,19 @@
                 })
             
             var x = 0;
-            var homeHeader = "Hi! I am Simon Kim and Welcome to my Resume!";
+            var typeHeader = "Hi! I am Simon Kim and Welcome to my Resume!";
             var container = document.getElementById('header');
 
-            function homeType(){
-                if (x < homeHeader.length){
-                    container.innerHTML += homeHeader.charAt(x);
+            function type(){
+                if (x < typeHeader.length){
+                    container.innerHTML += typeHeader.charAt(x);
                     x++;
-                    setTimeout(homeType, 80);
+                    setTimeout(type, 80);
                     
                 }
                 
             }
-            homeType();
+            type();
 
            
 
