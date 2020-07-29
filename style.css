@@ -234,3 +234,7 @@ body{
   flex-direction:column;
   justify-content: center;
 }
+
+#linkedinLink , #twitterLink, #githubLink{
+  color:black;
+}
