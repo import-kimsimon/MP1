@@ -30,9 +30,11 @@
                     <li><a href="organizations.html"><i class="fas fa-sitemap"></i>Organizations</a></li>
 
                 </ul> 
-                <i class="fab fa-linkedin" id="linkedin"></i>
-                <i class="fab fa-twitter-square" id= "twitter"></i>
-                <i class="fab fa-github-square" id="github"></i>
+
+                <a href="" id="linkedinLink"><i class="fab fa-linkedin" id="linkedin"></i></a>
+                <a href="" id="twitterLink"><i class="fab fa-twitter-square" id= "twitter"></i></a>
+                <a href="" id="githubLink"><i class="fab fa-github-square" id="github"></i></a>
+
             </div>
             <div class="main_content">
                 <div class="header" id="header"></div>  
@@ -76,6 +78,15 @@
 
             const worksList = document.querySelector('#works');
 
+            const linkedinRef = document.querySelector('#linkedinLink');
+            const githubRef = document.querySelector('#githubLink');
+            const twitterRef = document.querySelector('#twitterLink');
+
+            function renderlinks(doc){
+                linkedinRef.setAttribute('href', doc.data().linkedin);
+                githubRef.setAttribute('href', doc.data().github);
+                twitterRef.setAttribute('href', doc.data().twitter);
+            }
 
             function renderWorks(doc){
                 let li = document.createElement('li');
@@ -102,6 +113,13 @@
                     })
                 })
 
+
+            db.collection("links").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderlinks(doc);
+                        
+                    })
+                })
 
             var x = 0;
             var typeHeader = "Past Works";
