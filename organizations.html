@@ -123,20 +123,6 @@
                 
             }
 
-
-             db.collection("organizations").get().then((snapshot) => {
-                    snapshot.docs.forEach(doc => {
-                        renderEducation(doc);
-                    })
-                })
-
-            db.collection("links").get().then((snapshot) => {
-                    snapshot.docs.forEach(doc => {
-                        renderlinks(doc);
-                        
-                    })
-                })
-
             var x = 0;
             var typeHeader = "Organizations";
             var container = document.getElementById('header');
@@ -152,19 +138,32 @@
             type();
 
 
+            db.collection("organizations").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderEducation(doc);
+                    })
+                })
+
+            db.collection("links").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderlinks(doc);
+                        
+                    })
+                })
+
             VANTA.BIRDS({
-            el: "#vantajs",
-            /* more options (Uncomment) */
-            birdSize: 1.50,
-            wingSpan: 21.00,
-            speedLimit: 4.00,
-            separation: 40.00,
-            alignment: 33.00,
-            cohesion: 33.00,
-            quantity: 3.00,
-            backgroundColor: 0xf2f2f2,
-            color1: 0x994C00,
-            color2: 0xCC6600
+                el: "#vantajs",
+                /* more options (Uncomment) */
+                birdSize: 1.50,
+                wingSpan: 21.00,
+                speedLimit: 4.00,
+                separation: 40.00,
+                alignment: 33.00,
+                cohesion: 33.00,
+                quantity: 3.00,
+                backgroundColor: 0xf2f2f2,
+                color1: 0x994C00,
+                color2: 0xCC6600
             
             });
 
