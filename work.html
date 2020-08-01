@@ -39,8 +39,10 @@
             </div>
             <div class="main_content">
                 <div class="header" id="header"></div>  
-                <form id="works-form"></form>
-                <ul id="works"></ul>
+                <div id="worksContainer"></div>
+
+                <!-- <form id="works-form"></form>
+                <ul id="works"></ul> -->
                 
          
             </div>
@@ -77,7 +79,7 @@
 
             var db = firebase.firestore();
 
-            const worksList = document.querySelector('#works');
+            const worksList = document.querySelector('#worksContainer');
 
             const linkedinRef = document.querySelector('#linkedinLink');
             const githubRef = document.querySelector('#githubLink');
@@ -90,21 +92,25 @@
             }
 
             function renderWorks(doc){
-                let li = document.createElement('li');
+                let record= document.createElement('div');
                 let project = document.createElement('div');
                 let subject = document.createElement('div');
+                let space = document.createElement('br');
 
-                project.setAttribute('id', 'proj');
-                subject.setAttribute('id','course');
-                li.setAttribute('data-id', doc.id);
-                subject.textContent = doc.data().Subject;
+                record.setAttribute('id', 'record');
+                project.setAttribute('id', 'project');
+                subject.setAttribute('id', 'subject');
+
+
                 project.textContent = doc.data().Project;
-                
-                li.appendChild(subject);
-                li.appendChild(project);
-                
+                subject.textContent = doc.data().Subject;
 
-                worksList.appendChild(li);
+
+
+                record.appendChild(project);
+                record.appendChild(subject);
+
+                worksList.appendChild(record);
             }
 
 
