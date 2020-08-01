@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="vantajs">
 
     
     <head>
@@ -8,7 +8,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.2/css/all.css">
         <link rel="stylesheet" type="text/css" href="style.css">
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
+        <script src="https://www.vantajs.com/dist/vanta.birds.min.js"></script>
         <title>Welcome To My Resume!</title>
 
     </head>
@@ -149,6 +150,24 @@
                 
             }
             type();
+
+
+            VANTA.BIRDS({
+            el: "#vantajs",
+            /* more options (Uncomment) */
+            birdSize: 1.50,
+            wingSpan: 21.00,
+            speedLimit: 4.00,
+            separation: 40.00,
+            alignment: 33.00,
+            cohesion: 33.00,
+            quantity: 3.00,
+            backgroundColor: 0xf2f2f2,
+            color1: 0x994C00,
+            color2: 0xCC6600
+            
+            });
+
 
             </script>
                 
