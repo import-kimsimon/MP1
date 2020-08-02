@@ -93,7 +93,7 @@
                 twitterRef.setAttribute('href', doc.data().twitter);
             }
 
-            function renderEducation(doc){
+            function renderOrgs(doc){
                 let record= document.createElement('div');
                 let name = document.createElement('div');
                 let position = document.createElement('div');
@@ -140,7 +140,7 @@
 
             db.collection("organizations").get().then((snapshot) => {
                     snapshot.docs.forEach(doc => {
-                        renderEducation(doc);
+                        renderOrgs(doc);
                     })
                 })
 
