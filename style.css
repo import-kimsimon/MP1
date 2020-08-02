@@ -447,3 +447,24 @@ body{
   margin-bottom:10px;
   opacity: 0.8;
 }
+
+#editIntro{
+  width: 60%;
+  padding: 50px;
+  background-color: lightgray;
+  border-radius:10px;
+
+}
+
+#introForm{
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.introButton{
+  text-align: center;
+  
+}
