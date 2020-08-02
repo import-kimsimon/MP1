@@ -35,6 +35,16 @@
         <div class ="main_content">
                 <div class="header" id="header"></div>  
 
+                <div id="abtme">About Me</div>
+                <form action="/action_page.php" id="introForm">
+                    <div id="intro"></div>
+                <input type="text" id="editIntro" name="editIntro">
+                </form>
+
+                <div class="introButton">
+                <button class="addButton"  onclick="editIntro()" type="submit">Edit Intro</button>
+                </div>
+
                 <div id="editHeaders">Education<button class="addButton" onclick="educForm()">Add</button></div>
                 <div id="educationContainer"></div>
 
@@ -174,6 +184,8 @@
             const Eform = document.querySelector('#addEduc');
             const Oform = document.querySelector('#addOrg');
             const Wform = document.querySelector('#addWork');
+            const introForm = document.querySelector('#introForm');
+            const intro = document.querySelector('#intro');
 
             function renderEducation(doc){
                 let record= document.createElement('div');
@@ -227,7 +239,7 @@
                 let year_start = document.createElement('div');
                 let year_end = document.createElement('div');
                 let space = document.createElement('br');
-                let deleteB = document.createElement('dv');
+                let deleteB = document.createElement('div');
                 let div = document.createElement('div');
 
                 record.setAttribute('id', 'record');
@@ -303,6 +315,27 @@
                 })
             }
 
+
+            function render(doc){
+
+                intro.setAttribute('data-id', doc.id);
+                intro.textContent = doc.data().intro;
+
+                
+            }
+
+            function editIntro(){
+
+                let dataID = intro.getAttribute('data-id');
+                db.collection("intro").doc(dataID).update({
+                    intro: introForm.editIntro.value
+                })
+                introForm.editIntro.value= '';
+
+        
+            }
+            
+
             db.collection("educations").get().then((snapshot) => {
                     snapshot.docs.forEach(doc => {
                         renderEducation(doc);
@@ -315,11 +348,21 @@
                       })
                  })
 
-          db.collection("Works").get().then((snapshot) => {
+            db.collection("Works").get().then((snapshot) => {
                     snapshot.docs.forEach(doc => {
                         renderWorks(doc);
                     })
                 })
+
+
+            db.collection("intro").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        render(doc);
+                        
+                    })
+                })
+
+
 
             var x = 0;
             var typeHeader = "Editting";
@@ -389,6 +432,8 @@
                 Wform.course.value= '';
 
             })
+
+            
 
 
             function educForm() {
