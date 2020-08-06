@@ -1,0 +1,1086 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+
+
+<body >
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+
+
+
+
+    <div class="text-center">
+        
+    </div>
+    
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade" backdrop="static" keyboard="false">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div action="/examples/actions/confirmation.php" method="post">
+                    <div class="modal-header">				
+                        <h4 class="modal-title">Login</h4>
+                        
+                    </div>
+                    <div class="modal-body">				
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" required="required" id="email">
+                        </div>
+                        <div class="form-group">
+                            <div class="clearfix">
+                                <label>Password</label>
+                            </div>
+                            
+                            <input type="password" class="form-control" required="required" id="password">
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <input type="submit" class="btn btn-primary" value="Login" onclick="login()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>     
+
+    <div class="wrapper" >
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i></i>Education</a></li>
+                <li><a href="work.html"><i class="fas fa-briefcase"></i>Work</a></li>
+                <li><a href="organizations.html"><i class="fas fa-sitemap"></i>Organizations</a></li>
+                
+
+            </ul> 
+
+            <a href="" id="linkedinLink"><i class="fab fa-linkedin" id="linkedin"></i></a>
+            <a href="" id="twitterLink"><i class="fab fa-twitter-square" id= "twitter"></i></a>
+            <a href="" id="githubLink"><i class="fab fa-github-square" id="github"></i></a>
+
+        </div>
+
+        <div class ="main_content">
+                <div class="header" id="header"></div>  
+
+                <div id="abtme">About Me</div>
+                <form action="/action_page.php" id="introForm">
+                    <div id="intro"></div>
+                <input type="text" id="editIntro" name="editIntro">
+                </form>
+
+                <div class="introButton">
+                <button class="addButton"  onclick="editIntro()" type="submit">Edit Intro</button>
+                </div>
+
+                <div id="editHeaders">Education<button class="addButton" onclick="educForm()">Add</button></div>
+                <div id="educationContainer"></div>
+
+                <div id="editHeaders">Organizations<button class="addButton" onclick="orgsForm()">Add</button></div>
+                <div id="organizationsContainer"></div>
+
+                <div id="editHeaders">Works<button class="addButton" onclick="worksForm()">Add</button></div>
+                <div id="worksContainer"></div>
+           
+        </div>
+
+            
+    </div>
+
+    <!-- education add form -->
+    <div class="form-popup" id="educationForm">
+        <form action="/action_page.php" class="form-container" id="addEduc">
+          <h1>Add Education</h1>
+      
+          <label for="school"><b>School</b></label>
+          <input type="text" placeholder="Enter School" name="school" required>
+      
+          <label for="degree"><b>Degree</b></label>
+          <input type="text" placeholder="Enter Degree" name="degree" required>
+
+          <label for="year_start"><b>Year Start</b></label>
+          <input type="text" placeholder="Enter Start Year" name="yearStart" required>
+
+          <label for="year_end"><b>Year End</b></label>
+          <input type="text" placeholder="Enter End Year" name="yearEnd" required>
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+    <!-- orgs add form -->
+      <div class="form-popup" id="orgsForm">
+        <form action="/action_page.php" class="form-container" id="addOrg">
+          <h1>Add Organization</h1>
+      
+          <label for="organization"><b>Organization</b></label>
+          <input type="text" placeholder="Enter Organization" name="organization" required>
+      
+          <label for="position"><b>Position</b></label>
+          <input type="text" placeholder="Enter Position" name="position" required>
+
+          <label for="year_start"><b>Year Start</b></label>
+          <input type="text" placeholder="Enter Start Year" name="yearStart" required>
+
+          <label for="year_end"><b>Year End</b></label>
+          <input type="text" placeholder="Enter End Year" name="yearEnd" required>
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+
+      <!-- works add form -->
+      <div class="form-popup" id="worksForm">
+        <form action="/action_page.php" class="form-container" id="addWork">
+          <h1>Add Projects</h1>
+      
+          <label for="project"><b>Project</b></label>
+          <input type="text" placeholder="Enter Project" name="project" required>
+      
+          <label for="course"><b>Course</b></label>
+          <input type="text" placeholder="Enter Course" name="course" required>
+
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+
+</body>
+
+
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+
+<script>
+
+
+	$(document).ready(function(){
+        firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                $("#myModal").modal('hide');
+               }
+               else{
+                $('#myModal').modal({backdrop: 'static', keyboard: false});
+		        $("#myModal").modal('show');
+               }
+            })
+   
+	});
+
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDPksMApTycQBOCITMf9ewewKDtu99oXW8",
+                authDomain: "ccappdev-resume.firebaseapp.com",
+                databaseURL: "https://ccappdev-resume.firebaseio.com",
+                projectId: "ccappdev-resume",
+                storageBucket: "ccappdev-resume.appspot.com",
+                messagingSenderId: "81143200495",
+                appId: "1:81143200495:web:f95c0ebf26526ce089b91a"
+            };
+            // Initialize Firebase
+            var defaultProject = firebase.initializeApp(firebaseConfig);
+
+            var db = firebase.firestore();
+
+
+            
+
+            function login(){
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+                .then(function() {
+                    // Existing and future Auth states are now persisted in the current
+                    // session only. Closing the window would clear any existing state even
+                    // if a user forgets to sign out.
+                    // ...
+                    // New sign-in will be persisted with session persistence.
+                    return firebase.auth().signInWithEmailAndPassword(email, password);
+                })
+                .catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                });
+
+                firebase.auth().signInWithEmailAndPassword(email.trim(), password).then(function(user){
+                    
+                    var user = firebase.auth().currentUser;
+                    if(user != null){
+                        console.log(user.email);
+                        $("#myModal").modal('hide');
+                    }
+
+            }).catch(function(err){
+                if(err.code == "auth/wrong-password"){
+                    alert("wrong password")
+                }else{
+                    alert(err.message);
+                }
+            })
+
+            
+            }
+
+            
+            
+
+
+
+            const educations = document.querySelector('#educationContainer');
+            const worksList = document.querySelector('#worksContainer');
+            const orgs = document.querySelector('#organizationsContainer');
+            const Eform = document.querySelector('#addEduc');
+            const Oform = document.querySelector('#addOrg');
+            const Wform = document.querySelector('#addWork');
+            const introForm = document.querySelector('#introForm');
+            const intro = document.querySelector('#intro');
+
+            function renderEducation(doc){
+                let record= document.createElement('div');
+                let school = document.createElement('div');
+                let degree = document.createElement('div');
+                let year_start = document.createElement('div');
+                let year_end = document.createElement('div');
+                let space = document.createElement('br');
+                let deleteB = document.createElement('div');
+                let div = document.createElement('div');
+
+                record.setAttribute('data-id', doc.id);
+                record.setAttribute('id', 'record');
+                school.setAttribute('id', 'school');
+                degree.setAttribute('id', 'degree');
+                year_start.setAttribute('id', 'year-start');
+                year_end.setAttribute('id', 'year-endEdit');
+                deleteB.setAttribute('class', 'deleteButton');
+                div.setAttribute('id', 'editDiv');
+                deleteB.textContent = 'Delete';
+                school.textContent = doc.data().school;
+                degree.textContent = doc.data().degree;
+                year_start.textContent = "Year start: " +doc.data().year_start;
+                year_end.textContent = "Year end: " + doc.data().year_end;
+
+
+
+                record.appendChild(school);
+                record.appendChild(degree);
+                record.appendChild(year_start);
+                record.appendChild(year_end);
+                record.appendChild(deleteB);
+                record.appendChild(div);
+                
+                
+                educations.appendChild(record);
+
+                deleteB.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    let id = e.target.parentElement.getAttribute('data-id');
+                    db.collection("educations").doc(id).delete();
+                   
+                })
+                
+            }
+
+            function renderOrgs(doc){
+                let record= document.createElement('div');
+                let name = document.createElement('div');
+                let position = document.createElement('div');
+                let year_start = document.createElement('div');
+                let year_end = document.createElement('div');
+                let space = document.createElement('br');
+                let deleteB = document.createElement('div');
+                let div = document.createElement('div');
+
+                record.setAttribute('id', 'record');
+                record.setAttribute('data-id', doc.id);
+                name.setAttribute('id', 'orgname');
+                position.setAttribute('id', 'position');
+                year_start.setAttribute('id', 'year-start');
+                year_end.setAttribute('id', 'year-endEdit');
+                deleteB.setAttribute('class', 'deleteButton');
+                div.setAttribute('id', 'editDiv');
+
+                deleteB.textContent = 'Delete';
+                name.textContent = doc.data().name;
+                position.textContent = doc.data().position;
+                year_start.textContent = "Year start: " +doc.data().year_start;
+                year_end.textContent = "Year end: " + doc.data().year_end;
+
+                
+
+
+                record.appendChild(name);
+                record.appendChild(position);
+                record.appendChild(year_start);
+                record.appendChild(year_end);
+                record.appendChild(deleteB);
+                record.appendChild(div);
+
+                orgs.appendChild(record);
+
+                deleteB.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    let id = e.target.parentElement.getAttribute('data-id');
+                    db.collection("organizations").doc(id).delete();
+                   
+                })
+                
+            }
+
+            function renderWorks(doc){
+                let record= document.createElement('div');
+                let project = document.createElement('div');
+                let subject = document.createElement('div');
+                let space = document.createElement('br');
+                let deleteB = document.createElement('div');
+                let div = document.createElement('div');
+
+                record.setAttribute('id', 'record');
+                record.setAttribute('data-id', doc.id);
+                project.setAttribute('id', 'project');
+                subject.setAttribute('id', 'subjectEdit');
+                deleteB.setAttribute('class', 'deleteButton');
+                div.setAttribute('id', 'editDiv');
+
+                deleteB.textContent = 'Delete';
+                project.textContent = doc.data().Project;
+                subject.textContent = doc.data().Subject;
+
+             
+
+
+                record.appendChild(project);
+                record.appendChild(subject);
+                record.appendChild(deleteB);
+                record.appendChild(div);
+
+                worksList.appendChild(record);
+
+                deleteB.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    let id = e.target.parentElement.getAttribute('data-id');
+                    db.collection("Works").doc(id).delete();
+                   
+                })
+            }
+
+
+            function render(doc){
+
+                intro.setAttribute('data-id', doc.id);
+                intro.textContent = doc.data().intro;
+
+                
+            }
+
+            function editIntro(){
+
+                let dataID = intro.getAttribute('data-id');
+                db.collection("intro").doc(dataID).update({
+                    intro: introForm.editIntro.value
+                })
+                introForm.editIntro.value= '';
+
+        
+            }
+            
+
+            db.collection("educations").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderEducation(doc);
+                    })
+                })
+
+            db.collection("organizations").get().then((snapshot) => {
+                                snapshot.docs.forEach(doc => {
+                                    renderOrgs(doc);
+                      })
+                 })
+
+            db.collection("Works").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderWorks(doc);
+                    })
+                })
+
+
+            db.collection("intro").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        render(doc);
+                        
+                    })
+                })
+
+
+
+            var x = 0;
+            var typeHeader = "Editting";
+            var container = document.getElementById('header');
+            function type(){
+                if (x < typeHeader.length){
+                    container.innerHTML += typeHeader.charAt(x);
+                    x++;
+                    setTimeout(type, 80);
+                    
+                }
+                
+            }
+            type();
+
+
+            // window.onbeforeunload = function() {
+            // return "Are you sure ";
+            // };
+            // window.onkeydown = function(event) {
+            //     if (event.keyCode === 116) {
+            //         window.location.reload();
+            // }
+            // };
+
+
+            // window.onload=function(){
+                
+            // }
+
+
+            Eform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                db.collection("educations").add({
+                    school: Eform.school.value,
+                    degree: Eform.degree.value,
+                    year_end: Eform.yearEnd.value,
+                    year_start: Eform.yearStart.value
+                })
+                Eform.school.value= '';
+                Eform.degree.value= '';
+                Eform.yearEnd.value= '';
+                Eform.yearStart.value= '';
+            })
+
+            Oform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                db.collection("organizations").add({
+                    name: Oform.organization.value,
+                    position: Oform.position.value,
+                    year_end: Oform.yearEnd.value,
+                    year_start: Oform.yearStart.value
+                })
+                Oform.organization.value= '';
+                Oform.position.value= '';
+                Oform.yearEnd.value= '';
+                Oform.yearStart.value= '';
+            })
+
+            Wform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                db.collection("Works").add({
+                    Project: Wform.project.value,
+                    Subject: Wform.course.value,
+                })
+                Wform.project.value= '';
+                Wform.course.value= '';
+
+            })
+
+            
+
+
+            function educForm() {
+                document.getElementById("educationForm").style.display = "block";
+                }
+
+            function orgsForm(){
+                document.getElementById("orgsForm").style.display = "block";
+            }
+
+            function worksForm(){
+                document.getElementById("worksForm").style.display = "block";
+            }
+
+            function closeForm() {
+                document.getElementById("educationForm").style.display = "none";
+                document.getElementById("orgsForm").style.display = "none";
+                document.getElementById("worksForm").style.display = "none";
+                }
+</script>
+
+=======
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+
+
+<body >
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+
+
+
+
+    <div class="text-center">
+        
+    </div>
+    
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade" backdrop="static" keyboard="false">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div action="/examples/actions/confirmation.php" method="post">
+                    <div class="modal-header">				
+                        <h4 class="modal-title">Login</h4>
+                        
+                    </div>
+                    <div class="modal-body">				
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" required="required" id="email">
+                        </div>
+                        <div class="form-group">
+                            <div class="clearfix">
+                                <label>Password</label>
+                            </div>
+                            
+                            <input type="password" class="form-control" required="required" id="password">
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <input type="submit" class="btn btn-primary" value="Login" onclick="login()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>     
+
+    <div class="wrapper" >
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i></i>Education</a></li>
+                <li><a href="work.html"><i class="fas fa-briefcase"></i>Work</a></li>
+                <li><a href="organizations.html"><i class="fas fa-sitemap"></i>Organizations</a></li>
+                
+
+            </ul> 
+
+            <a href="" id="linkedinLink"><i class="fab fa-linkedin" id="linkedin"></i></a>
+            <a href="" id="twitterLink"><i class="fab fa-twitter-square" id= "twitter"></i></a>
+            <a href="" id="githubLink"><i class="fab fa-github-square" id="github"></i></a>
+
+        </div>
+
+        <div class ="main_content">
+                <div class="header" id="header"></div>  
+
+                <div id="abtme">About Me</div>
+                <form action="/action_page.php" id="introForm">
+                    <div id="intro"></div>
+                <input type="text" id="editIntro" name="editIntro">
+                </form>
+
+                <div class="introButton">
+                <button class="addButton"  onclick="editIntro()" type="submit">Edit Intro</button>
+                </div>
+
+                <div id="editHeaders">Education<button class="addButton" onclick="educForm()">Add</button></div>
+                <div id="educationContainer"></div>
+
+                <div id="editHeaders">Organizations<button class="addButton" onclick="orgsForm()">Add</button></div>
+                <div id="organizationsContainer"></div>
+
+                <div id="editHeaders">Works<button class="addButton" onclick="worksForm()">Add</button></div>
+                <div id="worksContainer"></div>
+           
+        </div>
+
+            
+    </div>
+
+    <!-- education add form -->
+    <div class="form-popup" id="educationForm">
+        <form action="/action_page.php" class="form-container" id="addEduc">
+          <h1>Add Education</h1>
+      
+          <label for="school"><b>School</b></label>
+          <input type="text" placeholder="Enter School" name="school" required>
+      
+          <label for="degree"><b>Degree</b></label>
+          <input type="text" placeholder="Enter Degree" name="degree" required>
+
+          <label for="year_start"><b>Year Start</b></label>
+          <input type="text" placeholder="Enter Start Year" name="yearStart" required>
+
+          <label for="year_end"><b>Year End</b></label>
+          <input type="text" placeholder="Enter End Year" name="yearEnd" required>
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+    <!-- orgs add form -->
+      <div class="form-popup" id="orgsForm">
+        <form action="/action_page.php" class="form-container" id="addOrg">
+          <h1>Add Organization</h1>
+      
+          <label for="organization"><b>Organization</b></label>
+          <input type="text" placeholder="Enter Organization" name="organization" required>
+      
+          <label for="position"><b>Position</b></label>
+          <input type="text" placeholder="Enter Position" name="position" required>
+
+          <label for="year_start"><b>Year Start</b></label>
+          <input type="text" placeholder="Enter Start Year" name="yearStart" required>
+
+          <label for="year_end"><b>Year End</b></label>
+          <input type="text" placeholder="Enter End Year" name="yearEnd" required>
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+
+      <!-- works add form -->
+      <div class="form-popup" id="worksForm">
+        <form action="/action_page.php" class="form-container" id="addWork">
+          <h1>Add Projects</h1>
+      
+          <label for="project"><b>Project</b></label>
+          <input type="text" placeholder="Enter Project" name="project" required>
+      
+          <label for="course"><b>Course</b></label>
+          <input type="text" placeholder="Enter Course" name="course" required>
+
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+
+</body>
+
+
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+
+<script>
+
+
+	$(document).ready(function(){
+        firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                $("#myModal").modal('hide');
+               }
+               else{
+                $('#myModal').modal({backdrop: 'static', keyboard: false});
+		        $("#myModal").modal('show');
+               }
+            })
+   
+	});
+
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDPksMApTycQBOCITMf9ewewKDtu99oXW8",
+                authDomain: "ccappdev-resume.firebaseapp.com",
+                databaseURL: "https://ccappdev-resume.firebaseio.com",
+                projectId: "ccappdev-resume",
+                storageBucket: "ccappdev-resume.appspot.com",
+                messagingSenderId: "81143200495",
+                appId: "1:81143200495:web:f95c0ebf26526ce089b91a"
+            };
+            // Initialize Firebase
+            var defaultProject = firebase.initializeApp(firebaseConfig);
+
+            var db = firebase.firestore();
+
+
+            
+
+            function login(){
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+                .then(function() {
+                    // Existing and future Auth states are now persisted in the current
+                    // session only. Closing the window would clear any existing state even
+                    // if a user forgets to sign out.
+                    // ...
+                    // New sign-in will be persisted with session persistence.
+                    return firebase.auth().signInWithEmailAndPassword(email, password);
+                })
+                .catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                });
+
+                firebase.auth().signInWithEmailAndPassword(email.trim(), password).then(function(user){
+                    
+                    var user = firebase.auth().currentUser;
+                    if(user != null){
+                        console.log(user.email);
+                        $("#myModal").modal('hide');
+                    }
+
+            }).catch(function(err){
+                if(err.code == "auth/wrong-password"){
+                    alert("wrong password")
+                }else{
+                    alert(err.message);
+                }
+            })
+
+            
+            }
+
+            
+            
+
+
+
+            const educations = document.querySelector('#educationContainer');
+            const worksList = document.querySelector('#worksContainer');
+            const orgs = document.querySelector('#organizationsContainer');
+            const Eform = document.querySelector('#addEduc');
+            const Oform = document.querySelector('#addOrg');
+            const Wform = document.querySelector('#addWork');
+            const introForm = document.querySelector('#introForm');
+            const intro = document.querySelector('#intro');
+
+            function renderEducation(doc){
+                let record= document.createElement('div');
+                let school = document.createElement('div');
+                let degree = document.createElement('div');
+                let year_start = document.createElement('div');
+                let year_end = document.createElement('div');
+                let space = document.createElement('br');
+                let deleteB = document.createElement('div');
+                let div = document.createElement('div');
+
+                record.setAttribute('data-id', doc.id);
+                record.setAttribute('id', 'record');
+                school.setAttribute('id', 'school');
+                degree.setAttribute('id', 'degree');
+                year_start.setAttribute('id', 'year-start');
+                year_end.setAttribute('id', 'year-endEdit');
+                deleteB.setAttribute('class', 'deleteButton');
+                div.setAttribute('id', 'editDiv');
+                deleteB.textContent = 'Delete';
+                school.textContent = doc.data().school;
+                degree.textContent = doc.data().degree;
+                year_start.textContent = "Year start: " +doc.data().year_start;
+                year_end.textContent = "Year end: " + doc.data().year_end;
+
+
+
+                record.appendChild(school);
+                record.appendChild(degree);
+                record.appendChild(year_start);
+                record.appendChild(year_end);
+                record.appendChild(deleteB);
+                record.appendChild(div);
+                
+                
+                educations.appendChild(record);
+
+                deleteB.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    let id = e.target.parentElement.getAttribute('data-id');
+                    db.collection("educations").doc(id).delete();
+                   
+                })
+                
+            }
+
+            function renderOrgs(doc){
+                let record= document.createElement('div');
+                let name = document.createElement('div');
+                let position = document.createElement('div');
+                let year_start = document.createElement('div');
+                let year_end = document.createElement('div');
+                let space = document.createElement('br');
+                let deleteB = document.createElement('div');
+                let div = document.createElement('div');
+
+                record.setAttribute('id', 'record');
+                record.setAttribute('data-id', doc.id);
+                name.setAttribute('id', 'orgname');
+                position.setAttribute('id', 'position');
+                year_start.setAttribute('id', 'year-start');
+                year_end.setAttribute('id', 'year-endEdit');
+                deleteB.setAttribute('class', 'deleteButton');
+                div.setAttribute('id', 'editDiv');
+
+                deleteB.textContent = 'Delete';
+                name.textContent = doc.data().name;
+                position.textContent = doc.data().position;
+                year_start.textContent = "Year start: " +doc.data().year_start;
+                year_end.textContent = "Year end: " + doc.data().year_end;
+
+                
+
+
+                record.appendChild(name);
+                record.appendChild(position);
+                record.appendChild(year_start);
+                record.appendChild(year_end);
+                record.appendChild(deleteB);
+                record.appendChild(div);
+
+                orgs.appendChild(record);
+
+                deleteB.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    let id = e.target.parentElement.getAttribute('data-id');
+                    db.collection("organizations").doc(id).delete();
+                   
+                })
+                
+            }
+
+            function renderWorks(doc){
+                let record= document.createElement('div');
+                let project = document.createElement('div');
+                let subject = document.createElement('div');
+                let space = document.createElement('br');
+                let deleteB = document.createElement('div');
+                let div = document.createElement('div');
+
+                record.setAttribute('id', 'record');
+                record.setAttribute('data-id', doc.id);
+                project.setAttribute('id', 'project');
+                subject.setAttribute('id', 'subjectEdit');
+                deleteB.setAttribute('class', 'deleteButton');
+                div.setAttribute('id', 'editDiv');
+
+                deleteB.textContent = 'Delete';
+                project.textContent = doc.data().Project;
+                subject.textContent = doc.data().Subject;
+
+             
+
+
+                record.appendChild(project);
+                record.appendChild(subject);
+                record.appendChild(deleteB);
+                record.appendChild(div);
+
+                worksList.appendChild(record);
+
+                deleteB.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    let id = e.target.parentElement.getAttribute('data-id');
+                    db.collection("Works").doc(id).delete();
+                   
+                })
+            }
+
+
+            function render(doc){
+
+                intro.setAttribute('data-id', doc.id);
+                intro.textContent = doc.data().intro;
+
+                
+            }
+
+            function editIntro(){
+
+                let dataID = intro.getAttribute('data-id');
+                db.collection("intro").doc(dataID).update({
+                    intro: introForm.editIntro.value
+                })
+                introForm.editIntro.value= '';
+
+        
+            }
+            
+
+            db.collection("educations").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderEducation(doc);
+                    })
+                })
+
+            db.collection("organizations").get().then((snapshot) => {
+                                snapshot.docs.forEach(doc => {
+                                    renderOrgs(doc);
+                      })
+                 })
+
+            db.collection("Works").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderWorks(doc);
+                    })
+                })
+
+
+            db.collection("intro").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        render(doc);
+                        
+                    })
+                })
+
+
+
+            var x = 0;
+            var typeHeader = "Editting";
+            var container = document.getElementById('header');
+            function type(){
+                if (x < typeHeader.length){
+                    container.innerHTML += typeHeader.charAt(x);
+                    x++;
+                    setTimeout(type, 80);
+                    
+                }
+                
+            }
+            type();
+
+
+            // window.onbeforeunload = function() {
+            // return "Are you sure ";
+            // };
+            // window.onkeydown = function(event) {
+            //     if (event.keyCode === 116) {
+            //         window.location.reload();
+            // }
+            // };
+
+
+            // window.onload=function(){
+                
+            // }
+
+
+            Eform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                db.collection("educations").add({
+                    school: Eform.school.value,
+                    degree: Eform.degree.value,
+                    year_end: Eform.yearEnd.value,
+                    year_start: Eform.yearStart.value
+                })
+                Eform.school.value= '';
+                Eform.degree.value= '';
+                Eform.yearEnd.value= '';
+                Eform.yearStart.value= '';
+            })
+
+            Oform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                db.collection("organizations").add({
+                    name: Oform.organization.value,
+                    position: Oform.position.value,
+                    year_end: Oform.yearEnd.value,
+                    year_start: Oform.yearStart.value
+                })
+                Oform.organization.value= '';
+                Oform.position.value= '';
+                Oform.yearEnd.value= '';
+                Oform.yearStart.value= '';
+            })
+
+            Wform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                db.collection("Works").add({
+                    Project: Wform.project.value,
+                    Subject: Wform.course.value,
+                })
+                Wform.project.value= '';
+                Wform.course.value= '';
+
+            })
+
+            
+
+
+            function educForm() {
+                document.getElementById("educationForm").style.display = "block";
+                }
+
+            function orgsForm(){
+                document.getElementById("orgsForm").style.display = "block";
+            }
+
+            function worksForm(){
+                document.getElementById("worksForm").style.display = "block";
+            }
+
+            function closeForm() {
+                document.getElementById("educationForm").style.display = "none";
+                document.getElementById("orgsForm").style.display = "none";
+                document.getElementById("worksForm").style.display = "none";
+                }
+</script>
+
+>>>>>>> ba06db1033710d22183f99681210b30d979f072e
+  </html>
