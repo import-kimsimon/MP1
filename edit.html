@@ -189,8 +189,17 @@
 
 
 	$(document).ready(function(){
-        $('#myModal').modal({backdrop: 'static', keyboard: false});
+        firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                $("#myModal").modal('hide');
+               }
+               else{
+                $('#myModal').modal({backdrop: 'static', keyboard: false});
 		$("#myModal").modal('show');
+               }
+            })
+
+        
         
 	});
 
@@ -210,12 +219,7 @@
             var db = firebase.firestore();
 
 
-            firebase.auth().onAuthStateChanged(user => {
-                if(user){
-                $("#myModal").modal('hide');
-               }
-               
-            })
+            
 
             function login(){
                 const email = document.getElementById('email').value;
