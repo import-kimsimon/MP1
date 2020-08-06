@@ -189,7 +189,7 @@
 
 
 	$(document).ready(function(){
-        
+        console.log("hello");
         firebase.auth().onAuthStateChanged(user => {
                 if(user){
                 $("#myModal").modal('hide');
