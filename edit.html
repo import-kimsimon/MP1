@@ -209,11 +209,33 @@
 
             var db = firebase.firestore();
 
+
+            firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                $("#myModal").modal('hide');
+               }
+               
+            })
+
             function login(){
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
                 
-                console.log(email);
+                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+                .then(function() {
+                    // Existing and future Auth states are now persisted in the current
+                    // session only. Closing the window would clear any existing state even
+                    // if a user forgets to sign out.
+                    // ...
+                    // New sign-in will be persisted with session persistence.
+                    return firebase.auth().signInWithEmailAndPassword(email, password);
+                })
+                .catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                });
+
                 firebase.auth().signInWithEmailAndPassword(email.trim(), password).then(function(user){
                     
                     var user = firebase.auth().currentUser;
@@ -221,8 +243,6 @@
                         console.log(user.email);
                         $("#myModal").modal('hide');
                     }
-
-                    $("#myModal").modal('hide');
 
             }).catch(function(err){
                 if(err.code == "auth/wrong-password"){
@@ -232,8 +252,12 @@
                 }
             })
 
-
+            
             }
+
+            
+            
+
 
 
             const educations = document.querySelector('#educationContainer');
