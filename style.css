@@ -470,10 +470,6 @@ body{
 }
 
 
-
-
-
-
 .modal-login {
 	width: 320px;
 }
@@ -534,4 +530,46 @@ body{
 .trigger-btn {
 	display: inline-block;
 	margin: 100px auto;
+}
+
+
+#socials{
+  text-align:center;
+  font-size: 80px;
+  position:relative;
+}
+
+.links{
+  position:fixed;
+  cursor: pointer;
+}
+
+.linksButton{
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius:10px;
+  position:relative;
+  top:-60px;
+}
+
+#social1{
+  position:relative;
+  left:-60px;
+}
+
+#social3{
+  position:relative;
+  right:-60px;
+}
+
+#sociala, #socialb, #socialc{
+  color:black;
 }
