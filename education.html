@@ -32,9 +32,9 @@
 
                 </ul> 
 
-                <a href="" id="linkedinLink"><i class="fab fa-linkedin" id="linkedin"></i></a>
-                <a href="" id="twitterLink"><i class="fab fa-twitter-square" id= "twitter"></i></a>
-                <a href="" id="githubLink"><i class="fab fa-github-square" id="github"></i></a>
+                <a href="" id="sociala"><i  id="socialNav1"></i></a>
+                <a href="" id="socialb"><i  id= "socialNav2"></i></a>
+                <a href="" id="socialc"><i  id="socialNav3"></i></a>
 
             </div>
             <div class="main_content">
@@ -84,14 +84,28 @@
             const orgs = document.querySelector('#organizationsContainer');
 
 
-            const linkedinRef = document.querySelector('#linkedinLink');
-            const githubRef = document.querySelector('#githubLink');
-            const twitterRef = document.querySelector('#twitterLink');
+            const sociala = document.querySelector('#sociala');
+            const socialb = document.querySelector('#socialb');
+            const socialc = document.querySelector('#socialc');
+            const icon1 = document.querySelector('#socialNav1');
+            const icon2 = document.querySelector('#socialNav2');
+            const icon3 = document.querySelector('#socialNav3');
 
             function renderlinks(doc){
-                linkedinRef.setAttribute('href', doc.data().linkedin);
-                githubRef.setAttribute('href', doc.data().github);
-                twitterRef.setAttribute('href', doc.data().twitter);
+                sociala.setAttribute('href', doc.data().link1);
+                sociala.setAttribute('data-id', doc.id);
+                icon1.setAttribute('class', doc.data().icon1);
+               
+
+                socialb.setAttribute('href', doc.data().link2);
+                socialb.setAttribute('data-id', doc.id);
+                icon2.setAttribute('class', doc.data().icon2);
+
+
+                socialc.setAttribute('href', doc.data().link3);
+                socialc.setAttribute('data-id', doc.id);
+                icon3.setAttribute('class', doc.data().icon3);
+
             }
 
 
