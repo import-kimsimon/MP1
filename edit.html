@@ -74,9 +74,9 @@
 
             </ul> 
 
-            <a href="" id="linkedinLink"><i class="fab fa-linkedin" id="linkedin"></i></a>
-            <a href="" id="twitterLink"><i class="fab fa-twitter-square" id= "twitter"></i></a>
-            <a href="" id="githubLink"><i class="fab fa-github-square" id="github"></i></a>
+            <a href="" id="sociala"><i class="fab fa-linkedin" id="linkedin"></i></a>
+            <a href="" id="socialb"><i class="fab fa-twitter-square" id= "twitter"></i></a>
+            <a href="" id="socialc"><i class="fab fa-github-square" id="github"></i></a>
 
         </div>
 
@@ -92,6 +92,17 @@
                 <div class="introButton">
                 <button class="addButton"  onclick="editIntro()" type="submit">Edit Intro</button>
                 </div>
+
+                <div id= "socials">
+                    <i class="fab fa-linkedin" class="links" id="social1"></i>
+                    <i class="fab fa-twitter-square" class="links" id="social2"></i>
+                    <i class="fab fa-github-square" class="links" id="social3"></i>
+                    <br>
+                    <button class="linksButton"  onclick="linksForm()" type="submit">Edit Link 1</button>
+                    <button class="linksButton"  onclick="linksForm2()" type="submit">Edit Link 2</button>
+                    <button class="linksButton"  onclick="linksForm3()" type="submit">Edit Link 3</button>
+                </div>
+
 
                 <div id="editHeaders">Education<button class="addButton" onclick="educForm()">Add</button></div>
                 <div id="educationContainer"></div>
@@ -169,6 +180,55 @@
         </form>
       </div>
 
+        <!-- links form -->
+      <div class="form-popup" id="linksForm">
+        <form action="/action_page.php" class="form-container" id="addlinks">
+          <h1>Edit Social Media Links</h1>
+      
+          <label for="icon"><b>Icon</b></label>
+          <input type="text" placeholder="Enter Icon Tag" name="icon" required>
+      
+          <label for="link"><b>Link</b></label>
+          <input type="text" placeholder="Enter Link" name="link" required>
+
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+      <div class="form-popup" id="linksForm2">
+        <form action="/action_page.php" class="form-container" id="addlinks2">
+          <h1>Edit Social Media Links2</h1>
+      
+          <label for="icon"><b>Icon</b></label>
+          <input type="text" placeholder="Enter Icon Tag" name="icon2" required>
+      
+          <label for="link"><b>Link</b></label>
+          <input type="text" placeholder="Enter Link" name="link2" required>
+
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
+
+
+      <div class="form-popup" id="linksForm3">
+        <form action="/action_page.php" class="form-container" id="addlinks3">
+          <h1>Edit Social Media Links3</h1>
+      
+          <label for="icon"><b>Icon</b></label>
+          <input type="text" placeholder="Enter Icon Tag" name="icon3" required>
+      
+          <label for="link"><b>Link</b></label>
+          <input type="text" placeholder="Enter Link" name="link3" required>
+
+      
+          <button type="submit" class="btn" id="addButton">Submit</button>
+          <button type="button" class="btn" onclick="closeForm()" id="closeButton">Close</button>
+        </form>
+      </div>
 
 </body>
 
@@ -260,11 +320,6 @@
             
             }
 
-            
-            
-
-
-
             const educations = document.querySelector('#educationContainer');
             const worksList = document.querySelector('#worksContainer');
             const orgs = document.querySelector('#organizationsContainer');
@@ -273,6 +328,26 @@
             const Wform = document.querySelector('#addWork');
             const introForm = document.querySelector('#introForm');
             const intro = document.querySelector('#intro');
+            const social = document.querySelector('#socials');
+            const Lform = document.querySelector('#addlinks');
+            const Lform2 = document.querySelector('#addlinks2');
+            const Lform3 = document.querySelector('#addlinks3');
+            const sociala = document.querySelector('#sociala');
+            const socialb = document.querySelector('#socialb');
+            const socialc = document.querySelector('#socialc');
+
+
+
+            function renderlinks(doc){
+                sociala.setAttribute('href', doc.data().link1);
+                sociala.setAttribute('data-id', doc.id);
+
+                socialb.setAttribute('href', doc.data().link2);
+                socialb.setAttribute('data-id', doc.id);
+
+                socialc.setAttribute('href', doc.data().link3);
+                socialc.setAttribute('data-id', doc.id);
+            }
 
             function renderEducation(doc){
                 let record= document.createElement('div');
@@ -419,7 +494,6 @@
                 })
                 introForm.editIntro.value= '';
 
-        
             }
             
 
@@ -449,6 +523,12 @@
                     })
                 })
 
+            db.collection("links").get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        renderlinks(doc);
+                        
+                    })
+                })
 
 
             var x = 0;
@@ -464,21 +544,6 @@
                 
             }
             type();
-
-
-            // window.onbeforeunload = function() {
-            // return "Are you sure ";
-            // };
-            // window.onkeydown = function(event) {
-            //     if (event.keyCode === 116) {
-            //         window.location.reload();
-            // }
-            // };
-
-
-            // window.onload=function(){
-                
-            // }
 
 
             Eform.addEventListener("submit", (e) => {
@@ -520,7 +585,42 @@
 
             })
 
-            
+            Lform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let dataID = sociala.getAttribute('data-id');
+                console.log("hi");
+                db.collection("links").doc(dataID).update({
+                    link1: Lform.link.value
+                })
+                Lform.link.value= '';
+                Lform.icon.value= '';
+
+            })
+
+            Lform2.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let dataID = socialb.getAttribute('data-id');
+                console.log("bye");
+                db.collection("links").doc(dataID).update({
+                    link2: Lform2.link2.value
+                })
+                Lform2.link.value= '';
+                Lform2.icon.value= '';
+
+            })
+
+
+            Lform3.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let dataID = socialc.getAttribute('data-id');
+                console.log("hello");
+                db.collection("links").doc(dataID).update({
+                    link3: Lform3.link3.value
+                })
+                Lform3.link.value= '';
+                Lform3.icon.value= '';
+
+            })
 
 
             function educForm() {
@@ -539,7 +639,20 @@
                 document.getElementById("educationForm").style.display = "none";
                 document.getElementById("orgsForm").style.display = "none";
                 document.getElementById("worksForm").style.display = "none";
+                document.getElementById("linksForm").style.display = "none";
                 }
+
+            function linksForm(){
+                document.getElementById("linksForm").style.display = "block";
+            }
+
+            function linksForm2(){
+                document.getElementById("linksForm2").style.display = "block";
+            }
+
+            function linksForm3(){
+                document.getElementById("linksForm3").style.display = "block";
+            }
 </script>
 
   </html>
