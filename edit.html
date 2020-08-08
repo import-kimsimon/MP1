@@ -74,9 +74,9 @@
 
             </ul> 
 
-            <a href="" id="sociala"><i class="fab fa-linkedin" id="linkedin"></i></a>
-            <a href="" id="socialb"><i class="fab fa-twitter-square" id= "twitter"></i></a>
-            <a href="" id="socialc"><i class="fab fa-github-square" id="github"></i></a>
+            <a href="" id="sociala"><i  id="socialNav1"></i></a>
+            <a href="" id="socialb"><i  id= "socialNav2"></i></a>
+            <a href="" id="socialc"><i  id="socialNav3"></i></a>
 
         </div>
 
@@ -94,9 +94,9 @@
                 </div>
 
                 <div id= "socials">
-                    <i class="fab fa-linkedin" class="links" id="social1"></i>
-                    <i class="fab fa-twitter-square" class="links" id="social2"></i>
-                    <i class="fab fa-github-square" class="links" id="social3"></i>
+                    <i   id="social1"></i>
+                    <i   id="social2"></i>
+                    <i  id="social3"></i>
                     <br>
                     <button class="linksButton"  onclick="linksForm()" type="submit">Edit Link 1</button>
                     <button class="linksButton"  onclick="linksForm2()" type="submit">Edit Link 2</button>
@@ -202,7 +202,7 @@
           <h1>Edit Social Media Links2</h1>
       
           <label for="icon"><b>Icon</b></label>
-          <input type="text" placeholder="Enter Icon Tag" name="icon2" required>
+          <input type="text" placeholder="Enter Icon Class Tag(fontawesome)" name="icon2" required>
       
           <label for="link"><b>Link</b></label>
           <input type="text" placeholder="Enter Link" name="link2" required>
@@ -335,18 +335,30 @@
             const sociala = document.querySelector('#sociala');
             const socialb = document.querySelector('#socialb');
             const socialc = document.querySelector('#socialc');
-
+            const social1 = document.querySelector('#social1');
+            const social2 = document.querySelector('#social2');
+            const social3 = document.querySelector('#social3');
+            const icon1 = document.querySelector('#socialNav1');
+            const icon2 = document.querySelector('#socialNav2');
+            const icon3 = document.querySelector('#socialNav3');
 
 
             function renderlinks(doc){
                 sociala.setAttribute('href', doc.data().link1);
                 sociala.setAttribute('data-id', doc.id);
+                icon1.setAttribute('class', doc.data().icon1);
+                social1.setAttribute('class',doc.data().icon1);
 
                 socialb.setAttribute('href', doc.data().link2);
                 socialb.setAttribute('data-id', doc.id);
+                icon2.setAttribute('class', doc.data().icon2);
+                social2.setAttribute('class',doc.data().icon2);
 
                 socialc.setAttribute('href', doc.data().link3);
                 socialc.setAttribute('data-id', doc.id);
+                icon3.setAttribute('class', doc.data().icon3);
+                social3.setAttribute('class',doc.data().icon3);
+
             }
 
             function renderEducation(doc){
@@ -590,7 +602,8 @@
                 let dataID = sociala.getAttribute('data-id');
                 console.log("hi");
                 db.collection("links").doc(dataID).update({
-                    link1: Lform.link.value
+                    link1: Lform.link.value,
+                    icon1: Lform.icon.value
                 })
                 Lform.link.value= '';
                 Lform.icon.value= '';
@@ -602,10 +615,11 @@
                 let dataID = socialb.getAttribute('data-id');
                 console.log("bye");
                 db.collection("links").doc(dataID).update({
-                    link2: Lform2.link2.value
+                    link2: Lform2.link2.value,
+                    icon2: Lform2.icon2.value
                 })
-                Lform2.link.value= '';
-                Lform2.icon.value= '';
+                Lform2.link2.value= '';
+                Lform2.icon2.value= '';
 
             })
 
@@ -615,10 +629,11 @@
                 let dataID = socialc.getAttribute('data-id');
                 console.log("hello");
                 db.collection("links").doc(dataID).update({
-                    link3: Lform3.link3.value
+                    link3: Lform3.link3.value,
+                    icon3: Lform3.icon3.value
                 })
-                Lform3.link.value= '';
-                Lform3.icon.value= '';
+                Lform3.link3.value= '';
+                Lform3.icon3.value= '';
 
             })
 
