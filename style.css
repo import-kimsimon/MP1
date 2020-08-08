@@ -227,7 +227,7 @@ body{
   padding-bottom: 20px;
 }
 
-#linkedin{
+#linkedin, #socialNav1{
   position:fixed;
   bottom:0%;
   left:20px;
@@ -237,7 +237,7 @@ body{
   cursor: pointer;
 }
 
-#twitter{
+#twitter, #socialNav2{
   position:fixed;
   bottom:0%;
   left: 80px;
@@ -247,7 +247,7 @@ body{
   cursor: pointer;
 }
 
-#github{
+#github, #socialNav3{
   position:fixed;
   bottom:0%;
   left: 140px;
