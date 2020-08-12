@@ -186,7 +186,7 @@
           <h1>Edit Social Media Links</h1>
       
           <label for="icon"><b>Icon</b></label>
-          <input type="text" placeholder="Enter Icon Tag" name="icon" required>
+          <input type="text" placeholder="Enter Icon Class Tag(Ex. fab fa-instagram)" name="icon" required>
       
           <label for="link"><b>Link</b></label>
           <input type="text" placeholder="Enter Link" name="link" required>
@@ -202,7 +202,7 @@
           <h1>Edit Social Media Links2</h1>
       
           <label for="icon"><b>Icon</b></label>
-          <input type="text" placeholder="Enter Icon Class Tag(fontawesome)" name="icon2" required>
+          <input type="text" placeholder="Enter Icon Class Tag(Ex. fab fa-instagram)" name="icon2" required>
       
           <label for="link"><b>Link</b></label>
           <input type="text" placeholder="Enter Link" name="link2" required>
@@ -219,7 +219,7 @@
           <h1>Edit Social Media Links3</h1>
       
           <label for="icon"><b>Icon</b></label>
-          <input type="text" placeholder="Enter Icon Tag" name="icon3" required>
+          <input type="text" placeholder="Enter Icon Class Tag(Ex. fab fa-instagram)" name="icon3" required>
       
           <label for="link"><b>Link</b></label>
           <input type="text" placeholder="Enter Link" name="link3" required>
@@ -509,39 +509,82 @@
             }
             
 
-            db.collection("educations").get().then((snapshot) => {
-                    snapshot.docs.forEach(doc => {
-                        renderEducation(doc);
-                    })
+            db.collection("educations").orderBy("school").onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                changes.forEach(change => {
+                    if(change.type == "added"){
+                        renderEducation(change.doc);
+                    }else if(change.type == "removed"){
+                        let div = educations.querySelector('[data-id=' + change.doc.id + ']');
+                        educations.removeChild(div);
+                    }
                 })
+            })
 
-            db.collection("organizations").get().then((snapshot) => {
-                                snapshot.docs.forEach(doc => {
-                                    renderOrgs(doc);
-                      })
-                 })
 
-            db.collection("Works").get().then((snapshot) => {
-                    snapshot.docs.forEach(doc => {
-                        renderWorks(doc);
-                    })
+            db.collection("organizations").orderBy("name").onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                changes.forEach(change => {
+                    if(change.type == "added"){
+                        renderOrgs(change.doc);
+                    }else if(change.type == "removed"){
+                        let div = orgs.querySelector('[data-id=' + change.doc.id + ']');
+                        orgs.removeChild(div);
+                    }
                 })
+            })
 
 
-            db.collection("intro").get().then((snapshot) => {
-                    snapshot.docs.forEach(doc => {
+
+            db.collection("Works").orderBy("Project").onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                changes.forEach(change => {
+                    if(change.type == "added"){
+                        renderWorks(change.doc);
+                    }else if(change.type == "removed"){
+                        let div = worksList.querySelector('[data-id=' + change.doc.id + ']');
+                        worksList.removeChild(div);
+                    }
+                })
+            })
+
+
+            db.collection("intro").onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                
+                db.collection("intro").get().then((snapshot) =>{
+                    snapshot.docs.forEach(doc =>{
                         render(doc);
-                        
                     })
                 })
 
-            db.collection("links").get().then((snapshot) => {
-                    snapshot.docs.forEach(doc => {
+                changes.forEach(change => {
+                    if(change.type == "modified"){
+                        render(doc);
+                        let div = document.getElementById("intro");
+                        introForm.removeChild(div);
+                    }
+                })
+            })
+
+
+
+            db.collection("links").onSnapshot(snapshot => {
+                let changes = snapshot.docChanges();
+                
+                db.collection("links").get().then((snapshot) =>{
+                    snapshot.docs.forEach(doc =>{
+                        renderlinks(doc);
+                    })
+                })
+
+                changes.forEach(change => {
+                    if(change.type == "modified"){
                         renderlinks(doc);
                         
-                    })
+                    }
                 })
-
+            })
 
             var x = 0;
             var typeHeader = "Editting";
@@ -655,6 +698,8 @@
                 document.getElementById("orgsForm").style.display = "none";
                 document.getElementById("worksForm").style.display = "none";
                 document.getElementById("linksForm").style.display = "none";
+                document.getElementById("linksForm2").style.display = "none";
+                document.getElementById("linksForm3").style.display = "none";
                 }
 
             function linksForm(){
