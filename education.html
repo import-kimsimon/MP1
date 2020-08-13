@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="vantajs">
+<html lang="en">
 
     
     <head>
@@ -8,8 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.2/css/all.css">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script>
-        <script src="https://www.vantajs.com/dist/vanta.birds.min.js"></script>
+        
         <title>Welcome To My Resume!</title>
 
     </head>
@@ -21,7 +20,7 @@
        
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
-        <div class="wrapper">
+        <div class="wrapper" id="particle">
             <div class="sidebar">
                 <h2>Menu</h2>
                 <ul>
@@ -50,7 +49,7 @@
             </div>
         </div>
 
-
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
       
             <!-- The core Firebase JS SDK is always required and must be listed first -->
             <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
@@ -168,24 +167,9 @@
                 })
 
 
-            VANTA.BIRDS({
-                el: "#vantajs",
-                /* more options (Uncomment) */
-                birdSize: 1.50,
-                wingSpan: 21.00,
-                speedLimit: 4.00,
-                separation: 40.00,
-                alignment: 33.00,
-                cohesion: 33.00,
-                quantity: 3.00,
-                backgroundColor: 0xf2f2f2,
-                color1: 0x994C00,
-                color2: 0xCC6600
-            
-            });
 
-
-
+                var options = {"particles":{"number":{"value":99,"density":{"enable":true,"value_area":552.4033491425909}},"color":{"value":"#fa7d09"},"shape":{"type":"circle","stroke":{"width":10,"color":"#ec823a"},"polygon":{"nb_sides":3},"image":{"src":"img/github.svg","width":70,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":2,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1.5782952832645452,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":false};
+particlesJS("particle", options);
 
             </script>
                 
